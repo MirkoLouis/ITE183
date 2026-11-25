@@ -27,7 +27,14 @@ profile separates school work from passion projects.
 ## Approaches considered
 | Approach | Trade-off | Decision |
 |---|---|---|
-| `git subtree add` | Keeps full history per folder; result is plain folders | **Chosen** |
+| `git subtree add` | Keeps full history; result is plain folders | **Chosen**, then refined (below) |
+| filter-repo `--to-subdirectory-filter` + `merge --allow-unrelated-histories` | Same subtree-style merge, but history paths live under the folder | **Used in execution** |
+
+Execution ruling: plain `git subtree add` leaves imported commits at
+root-level paths, so `git log -- <folder>` and GitHub file history showed
+only the merge commit. Rewriting each source into its folder first keeps
+the approved promise "history works per folder". Imported commit SHAs
+differ from the originals; authors and dates are unchanged.
 | Plain copy, one commit | Simplest; loses history | Rejected |
 | git submodules | Folders are pointers (`folder @ sha`); originals must stay live; doesn't match ITD105 | Rejected |
 

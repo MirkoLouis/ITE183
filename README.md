@@ -10,4 +10,4 @@ ITE183 Activity and Project Repository: every laboratory activity for the course
 | Lab 4 | MMORPG | Group activity, done solo | [`lab4-mmorpg/`](lab4-mmorpg/) |
 | Extra | Overcomplicating a Bonezegei GET request | Solo | [`extra-bonezegei-get-request/`](extra-bonezegei-get-request/) |
 
-Labs 1, 2 and Extra were merged from their original repositories with `git subtree`, so `git log -- <folder>` shows each project's full history.
+Labs 1, 2 and Extra were merged from their original repositories with their full history rewritten into each folder (`git filter-repo --to-subdirectory-filter`), so `git log -- <folder>` and GitHub's file history show each project's commits.
